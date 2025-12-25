@@ -71,16 +71,16 @@ implemented security measures:
 
 1. Clone repository
 
-    git clone <repo_url>  
-    cd devtest
+        git clone <repo_url>  
+        cd devtest
 
 2. Create environment file
 
-    cp .env.example .env
+        cp .env.example .env
 
 3. Start services
 
-    docker compose up --build
+        docker compose up --build
 
 4. Test
 
