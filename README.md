@@ -69,15 +69,22 @@ implemented security measures:
 
 ## Local Setup
 
-1. Clone repository  
+1. Clone repository
+
     git clone <repo_url>  
-    cd devtest  
-2. Create environment file  
-    cp .env.example .env  
-3. Start services  
-    docker compose up --build  
-4. Test  
-    curl -k https://localhost/health
+    cd devtest
+
+2. Create environment file
+
+    cp .env.example .env
+
+3. Start services
+
+    docker compose up --build
+
+4. Test
+
+        curl -k https://localhost/health
 
 ## CI/CD
 
