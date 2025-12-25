@@ -1,0 +1,32 @@
+name: CI 
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Build Docker images
+      run: docker compose build
+
+    - name: Start services
+      run: docker compose up -d
+
+    - name: Wait for services
+      run: sleep 15
+
+    - name: Healthcheck
+      run: |
+        curl -f http://localhost/health
+    
+    - name: Show logs on failure
+      if: failure()
+      run: docker compose logs
