@@ -12,12 +12,12 @@ The goal of the project is to whow how to:
 
 ## Architecture
 
-Client
-↓
-Nginx (80/443, HTTPS, security headers)
-↓
-Backend (Node.js, internal network)
-↓
+Client  
+↓  
+Nginx (80/443, HTTPS, security headers)  
+↓  
+Backend (Node.js, internal network)  
+↓  
 PostgreSQL (persistent volume)
 
 ## Tech Stack
@@ -49,10 +49,11 @@ The `/health` endpoint checks:
 - database connectivity
 
 Example response:
-    ```json
-    {
-        "status": "ok",
-        "db": "connected"
+
+    ```json  
+    {  
+        "status": "ok",  
+        "db": "connected"  
     }
 
 ## Security
@@ -68,14 +69,14 @@ implemented security measures:
 
 ## Local Setup
 
-1. Clone repository
-    git clone <repo_url>
-    cd devtest
-2. Create environment file
-    cp .env.example .env
-3. Start services
-    docker compose up --build
-4. Test
+1. Clone repository  
+    git clone <repo_url>  
+    cd devtest  
+2. Create environment file  
+    cp .env.example .env  
+3. Start services  
+    docker compose up --build  
+4. Test  
     curl -k https://localhost/health
 
 ## CI/CD
