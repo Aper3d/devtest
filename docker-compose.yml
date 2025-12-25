@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./certs:/etc/nginx/certs:ro
+    depends_on:
+      - backend
+  backend:
+    build: .
+    env_file:
+      - .env
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: devopsdb
+    volumes:
+      - postgress_data:/var/lib/postgresql/data
+
+volumes:
+  postgress_data:
